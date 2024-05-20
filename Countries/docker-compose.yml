@@ -1,0 +1,24 @@
+
+
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5430:5432
+    volumes:
+      - "./database-volume:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: searchart
+      POSTGRES_USER: mehran
+      POSTGRES_HOST_AUTH_METHOD: trust
+  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
